@@ -82,4 +82,4 @@ The solutions are intended to support learning and revision. Always understand t
 
 ---
 
-**© 2026 PSCodersHub — Learn. Build. Share.**
+<div align="center"> <h4 style=font-weight: bold;>© 2026 PSCodersHub — Learn. Build. Share.</h4> </div>
