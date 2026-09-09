@@ -1,0 +1,31 @@
+create table Student_info (student_id int primary key, name varchar2(50), city varchar2(20), dob date, mobile_no varchar2(10), family_income decimal(10,2))
+desc student_info
+insert into student_info values(1, 'Rajesh Singh', 'Mumbai', '25-dec-2000', '9589634756', 234000)
+insert into student_info values(2, 'Rahul Khan', 'Delhi', '14-jan-1960', '9465783164', 976480)
+insert into student_info values(3, 'Mika Roy', 'Kolkata', '20-feb-2002', '9548673125', 964387)
+select * from student_info
+
+create table Student_academy (student_id int, Degree varchar2(50), Year_Of_Passing int, school_name varchar2(50), board varchar2(30), total_mark int, secured_mark int, percentage decimal(5,2), foreign key (student_id) references student_info(student_id))
+desc student_academy
+
+insert into student_academy values(1, '10th', '2018', 'Kiit', 'CBSE', 500, 380, NULL)
+insert into student_academy values(1, '12th', '2020', 'Kiit', 'CBSE', 500, 410, NULL)
+insert into student_academy values(1, 'B.Tech', '2024', 'Kiit University', 'KIITEE', 5000, 4500, NULL)
+insert into student_academy values(2, '10th', '1980', 'Kiit', 'CBSE', 500, 400, NULL)
+insert into student_academy values(2, '12th', '1982', 'Kiit', 'CBSE', 500, 450, NULL)
+insert into student_academy values(2, 'BCA', '1995', 'Kiit University', 'KIITEE', 5000, 4700, NULL)
+insert into student_academy values(3, '10th', '2016', 'Kiit', 'CBSE', 500, 450, NULL)
+insert into student_academy values(3, '12th', '2018', 'Kiit', 'CBSE', 500, 490, NULL)
+insert into student_academy values(3, 'BSC', '2022', 'Kiit University', 'KIITEE', 5000, 4800, NULL)
+select * from student_academy
+
+update student_academy set percentage=0.89 where student_id=1
+update student_academy set percentage=0.98 where student_id=2
+update student_academy set percentage=0.84 where student_id=3
+select * from student_academy
+
+select * from student_info where family_income > 500000
+
+select * from student_academy where percentage between 60 and 80
+
+select si.student_id, si.name as Student_name, si.family_income, sa.degree, sa.year_of_passing, sa.percentage as percentage_of_marks_secured from student_info si JOIN student_academy sa on si.student_id =sa.student_id
